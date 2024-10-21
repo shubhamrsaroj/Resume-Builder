@@ -1,0 +1,156 @@
+<html>
+ <head>
+  <title>
+   Enhancv
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #f0f4f8, #e0eafc);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #fff;
+        }
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+        .header .logo img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        .header .nav {
+            display: flex;
+            align-items: center;
+        }
+        .header .nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        .header .nav a:hover {
+            color: #0073e6;
+        }
+        .header .nav .dropdown {
+            position: relative;
+        }
+        .header .nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            padding: 10px;
+            z-index: 1;
+        }
+        .header .nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .header .nav .dropdown-content a {
+            display: block;
+            padding: 5px 10px;
+            color: #333;
+        }
+        .header .nav .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .header .my-documents {
+            background-color: #00bfa5;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .header .my-documents:hover {
+            background-color: #009688;
+        }
+        .main-content {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .main-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #333;
+        }
+        .main-content h1 span {
+            color: #6a1b9a;
+        }
+        .main-content p {
+            font-size: 24px;
+            color: #333;
+            margin: 20px 0;
+        }
+        .main-content .buttons {
+            margin: 30px 0;
+        }
+        .main-content .buttons a {
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+        .main-content .buttons .build-resume {
+            background-color: #00bfa5;
+            color: #fff;
+        }
+        .main-content .buttons .build-resume:hover {
+            background-color: #009688;
+        }
+        .main-content .buttons .get-score {
+            background-color: #fff;
+            color: #6a1b9a;
+            border: 2px solid #6a1b9a;
+        }
+        .main-content .buttons .get-score:hover {
+            background-color: #6a1b9a;
+            color: #fff;
+        }
+        .main-content .trusted-by {
+            margin: 40px 0;
+            color: #333;
+        }
+        .main-content .trusted-by img {
+            margin: 0 15px;
+            height: 30px;
+        }
+        .main-content .resume-preview {
+            position: relative;
+            display: inline-block;
+            margin-top: 50px;
+        }
+        .main-content .resume-preview img {
+            width: 100%;
+            max-width: 600px;
+        }
+        .main-content .resume-preview .badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #00bfa5;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .main-content .resume-preview .profile-pic {
+            position: absolute;
+            top: 50px;
+            right: -30px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            width: 60px;
+            height: 60px;
+        }
+  </style>
+ </head>
+ <body>
