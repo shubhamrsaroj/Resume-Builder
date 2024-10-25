@@ -1,77 +1,48 @@
-<div class="header">
-    <div class="logo">
-     <img alt="Enhancv Logo" height="30" src="https://storage.googleapis.com/a1aa/image/fbijng94VJVmVyV1UTEMKunUJW1NPXD5Gn4Q0k0AezldKBpTA.jpg" width="30"/>
-     <span>
-      Enhancv
-     </span>
+
+    <div class="header">
+        <div class="logo">
+            <img alt="Enhancv Logo" src="https://storage.googleapis.com/a1aa/image/fbijng94VJVmVyV1UTEMKunUJW1NPXD5Gn4Q0k0AezldKBpTA.jpg" height="30" width="30"/>
+            <span>Enhancv</span>
+        </div>
+        <div class="nav">
+            <div class="dropdown">
+                <a href="#">Resume <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="/mytemplate">Template 1</a>
+                    <a href="/mysecondtemplate">Template 2</a>
+                </div>
+            </div>
+            <a href="#">Cover Letter</a>
+            <a href="#">Career Coaching</a>
+            <a href="#">Blog</a>
+            <a href="#">Pricing</a>
+            <a href="#">For Organizations</a>
+        </div>
+        <a class="my-documents" href="#">My Documents</a>
     </div>
-    <div class="nav">
-     <div class="dropdown">
-      <a href="#">
-       Resume
-       <i class="fas fa-caret-down">
-       </i>
-      </a>
-      <div class="dropdown-content">
-       <a href="/MyTemplate">
-        Template1
-       </a>
-       <a href="/mysecondtemplate">
-        Tempalte2
-       </a>
-      </div>
-     </div>
-     <a href="#">
-      Cover Letter
-     </a>
-     <a href="#">
-      Career Coaching
-     </a>
-     <a href="#">
-      Blog
-     </a>
-     <a href="#">
-      Pricing
-     </a>
-     <a href="#">
-      For Organizations
-     </a>
-    </div>
-    <a class="my-documents" href="#">
-     My Documents
-    </a>
-   </div>
-   <div class="main-content">
-    <h1>
-     Enhancv’s
-     <span>
-      Resume Builder
-     </span>
-    </h1>
-    <p>
-     helps you get hired at top companies
-    </p>
-    <div class="buttons">
-     <a class="build-resume" href="#">
-      Build Your Resume
-     </a>
-     <a class="get-score" href="#">
-      Get Your Resume Score
-     </a>
-    </div>
+
    
-    <div class="resume-preview">
-     <img alt="Resume Preview" height="400" src="https://storage.googleapis.com/a1aa/image/7l0VUokakH5JOdg02W2GIe7ie7Ku1IBptIzKr1i2OG5YKBpTA.jpg" width="600"/>
-     <div class="badge">
-      HIRED
-     </div>
-     <img alt="Profile Picture" class="profile-pic" height="60" src="https://storage.googleapis.com/a1aa/image/WcVDt21ffwgvepOykpNerqkhfyXzkjw79gfXUm70NEZ5lSQ6E.jpg" width="60"/>
-    </div>
-   </div>
- 
-   <div class="container">
-   <%- body %>
- 
- </div>
-  </body>
- </html>
+
+    <script>
+        // Add any JavaScript functionality here
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example: Add smooth scrolling to all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+ <div class="header">   
+
+<%- body %>
+
+
+</div>
+</body>
+</html>

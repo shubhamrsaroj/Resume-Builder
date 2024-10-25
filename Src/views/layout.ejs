@@ -1,137 +1,204 @@
+<!DOCTYPE html>
 <html>
- <head>
-  <title>
-   Enhancv
-  </title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
-  <style>
-   body {
+<head>
+    <title>Enhancv</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(to bottom right, #f0f4f8, #e0eafc);
         }
+        
+        /* Header Styles */
         .header {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             padding: 20px 50px;
             background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
+
         .header .logo {
             display: flex;
             align-items: center;
         }
+
         .header .logo img {
             height: 30px;
             margin-right: 10px;
         }
+
+        .header .logo span {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        /* Navigation Styles */
         .header .nav {
             display: flex;
             align-items: center;
         }
+
         .header .nav a {
             margin: 0 15px;
             text-decoration: none;
             color: #333;
             font-weight: 500;
+            transition: color 0.3s ease;
         }
+
         .header .nav a:hover {
             color: #0073e6;
         }
+
+        /* Dropdown Styles */
         .header .nav .dropdown {
             position: relative;
+            padding: 10px 0;
         }
+
         .header .nav .dropdown-content {
             display: none;
             position: absolute;
+            top: 100%;
+            left: 0;
             background-color: #fff;
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            padding: 10px;
+            border-radius: 5px;
+            padding: 10px 0;
+            min-width: 180px;
             z-index: 1;
         }
+
         .header .nav .dropdown:hover .dropdown-content {
             display: block;
         }
+
         .header .nav .dropdown-content a {
             display: block;
-            padding: 5px 10px;
+            padding: 8px 20px;
+            margin: 0;
             color: #333;
+            transition: background-color 0.3s ease;
         }
+
         .header .nav .dropdown-content a:hover {
             background-color: #f1f1f1;
         }
+
+        /* My Documents Button */
         .header .my-documents {
             background-color: #00bfa5;
             color: #fff;
             padding: 10px 20px;
             border-radius: 5px;
             text-decoration: none;
+            transition: background-color 0.3s ease;
         }
+
         .header .my-documents:hover {
             background-color: #009688;
         }
+
+        /* Main Content Styles */
         .main-content {
             text-align: center;
             padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
+
         .main-content h1 {
             font-size: 48px;
             font-weight: 700;
             color: #333;
+            margin-bottom: 20px;
         }
+
         .main-content h1 span {
             color: #6a1b9a;
         }
+
         .main-content p {
             font-size: 24px;
             color: #333;
             margin: 20px 0;
         }
+
+        /* Button Styles */
         .main-content .buttons {
             margin: 30px 0;
         }
+
         .main-content .buttons a {
             text-decoration: none;
             padding: 15px 30px;
             border-radius: 5px;
             font-size: 18px;
             margin: 0 10px;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
+
         .main-content .buttons .build-resume {
             background-color: #00bfa5;
             color: #fff;
         }
+
         .main-content .buttons .build-resume:hover {
             background-color: #009688;
+            transform: translateY(-2px);
         }
+
         .main-content .buttons .get-score {
             background-color: #fff;
             color: #6a1b9a;
             border: 2px solid #6a1b9a;
         }
+
         .main-content .buttons .get-score:hover {
             background-color: #6a1b9a;
             color: #fff;
+            transform: translateY(-2px);
         }
+
+        /* Trusted By Section */
         .main-content .trusted-by {
             margin: 40px 0;
             color: #333;
         }
+
         .main-content .trusted-by img {
             margin: 0 15px;
             height: 30px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
         }
+
+        .main-content .trusted-by img:hover {
+            opacity: 1;
+        }
+
+        /* Resume Preview Section */
         .main-content .resume-preview {
             position: relative;
             display: inline-block;
             margin-top: 50px;
         }
+
         .main-content .resume-preview img {
             width: 100%;
             max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
+
         .main-content .resume-preview .badge {
             position: absolute;
             top: 20px;
@@ -141,7 +208,9 @@
             padding: 5px 10px;
             border-radius: 5px;
             font-size: 14px;
+            font-weight: 500;
         }
+
         .main-content .resume-preview .profile-pic {
             position: absolute;
             top: 50px;
@@ -150,78 +219,99 @@
             border: 3px solid #fff;
             width: 60px;
             height: 60px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-  </style>
- </head>
- <body>
-  <div class="header">
-   <div class="logo">
-    <img alt="Enhancv Logo" height="30" src="https://storage.googleapis.com/a1aa/image/fbijng94VJVmVyV1UTEMKunUJW1NPXD5Gn4Q0k0AezldKBpTA.jpg" width="30"/>
-    <span>
-     Enhancv
-    </span>
-   </div>
-   <div class="nav">
-    <div class="dropdown">
-     <a href="#">
-      Resume
-      <i class="fas fa-caret-down">
-      </i>
-     </a>
-     <div class="dropdown-content">
-        <a href="/mytemplate">Template 1</a>
-        <a href="/mysecondtemplate">Template 2</a>
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+            }
+
+            .header .nav {
+                order: 3;
+                width: 100%;
+                margin-top: 15px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .header .nav a {
+                margin: 5px 10px;
+            }
+
+            .main-content h1 {
+                font-size: 36px;
+            }
+
+            .main-content p {
+                font-size: 20px;
+            }
+
+            .main-content .buttons a {
+                display: block;
+                margin: 10px auto;
+                max-width: 200px;
+            }
+        }
+        
+        #myid{
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+
+            <a href="/" id="myid">
+            <img alt="Enhancv Logo" src="https://storage.googleapis.com/a1aa/image/fbijng94VJVmVyV1UTEMKunUJW1NPXD5Gn4Q0k0AezldKBpTA.jpg" height="30" width="30"/>
+            <span>Enhancv</span>
+             </a>
+        </div>
+        <div class="nav">
+            <div class="dropdown">
+                <a href="#">Resume <i class="fas fa-caret-down"></i></a>
+                <div class="dropdown-content">
+                    <a href="/mytemplate">Template 1</a>
+                    <a href="/mysecondtemplate">Template 2</a>
+                </div>
+            </div>
+            <a href="#">Cover Letter</a>
+            <a href="#">Career Coaching</a>
+            <a href="#">Blog</a>
+            <a href="#">Pricing</a>
+            <a href="#">For Organizations</a>
+        </div>
+        <a class="my-documents" href="#">My Documents</a>
     </div>
-    </div>
-    <a href="#">
-     Cover Letter
-    </a>
-    <a href="#">
-     Career Coaching
-    </a>
-    <a href="#">
-     Blog
-    </a>
-    <a href="#">
-     Pricing
-    </a>
-    <a href="#">
-     For Organizations
-    </a>
-   </div>
-   <a class="my-documents" href="#">
-    My Documents
-   </a>
-  </div>
-  <div class="main-content">
-   <h1>
-    Enhancv’s
-    <span>
-     Resume Builder
-    </span>
-   </h1>
-   <p>
-    helps you get hired at top companies
-   </p>
-   <div class="buttons">
-    <a class="build-resume" href="#">
-     Build Your Resume
-    </a>
-    <a class="get-score" href="#">
-     Get Your Resume Score
-    </a>
-   </div>
-  
-   <div class="resume-preview">
-    <img alt="Resume Preview" height="400" src="https://storage.googleapis.com/a1aa/image/7l0VUokakH5JOdg02W2GIe7ie7Ku1IBptIzKr1i2OG5YKBpTA.jpg" width="600"/>
-    <div class="badge">
-     HIRED
-    </div>
-    <img alt="Profile Picture" class="profile-pic" height="60" src="https://storage.googleapis.com/a1aa/image/WcVDt21ffwgvepOykpNerqkhfyXzkjw79gfXUm70NEZ5lSQ6E.jpg" width="60"/>
-   </div>
-  </div>
+
+   
+
+    <script>
+        // Add any JavaScript functionality here
+        document.addEventListener('DOMContentLoaded', function() {
+            // Example: Add smooth scrolling to all links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+ <div class="header">   
 
 
 
- </body>
+<%- body %>
+
+
+</div>
+</body>
 </html>
