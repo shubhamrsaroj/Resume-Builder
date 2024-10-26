@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Resume Template</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
        /* Resume Container Layout */
    
@@ -83,24 +84,64 @@
             font-size: 15px;
         }
 
-        
+        [contenteditable="true"] {
+        position: absolute;
+        padding: 5px;
+        cursor: text;
+       
+       
+      }
 
+     
+
+
+      [contenteditable="true"]:focus {
+        background-color: #fff;
+        outline: 2px solid #00bfa5;
+        box-shadow: 0 0 5px rgba(0, 191, 165, 0.3);
+        border-radius: 2px;
+    }
+
+    
+    .mypara{
+        position: absolute;
+        top: 35px;
+        left:0px;
+    }
+    
+    .mypara2{
+        position: absolute;
+        top: 100px;
+        left:0px;
+    }
+
+    #mycontainer{
+        width: 500px;
+        height: 100px;
+        background-color: white;
+    }
+
+
+  
     </style>
 </head>
 <body>
 
 
     <div id="myresume">
-       
+    
+        
      <h1 contenteditable="true"   id="headercontent">SHUBHAM RAJESH SAROJ</h1>
           
      <h4 contenteditable="true"   id="headerdownline">FULL STACK MERN DEVELOPER </h4>
-     <p contenteditable="true" id="phoneno" > <i  id="greyit" class="fa fa-phone"></i> 8850497364 </p>
-     <p contenteditable="true" id="gmail" > <span id="greyit">&#64;</span></i> shubhamrsaroj229@gmail.com</p>
-     <p contenteditable="true" id="links" > <i id="greyit" class="fas fa-link"></i> https://github.com/shubhamrsaroj</p> 
-     <p contenteditable="true" id="links2" > <i id="greyit" class="fas fa-link"></i>https://www.linkedin.com/in/shubham-saroj109/</p>
-     <p contenteditable="true" id="location" > <i  id="greyit" class='fas fa-map-marker-alt'></i>Maharashtra/Mumbai</p>
+     <p contenteditable="true" id="phoneno" > <i contenteditable="false"  id="greyit" class="fa fa-phone"></i> <span>8850497364 </span></p>
+     <p contenteditable="true" id="gmail" > <span contenteditable="false" id="greyit">&#64;</span></i> <span>shubhamrsaroj229@gmail.com</span></p>
+     <p contenteditable="true" id="links" > <i  contenteditable="false" id="greyit" class="fas fa-link"></i> https://github.com/shubhamrsaroj</p> 
+     <p contenteditable="true" id="links2" > <i  contenteditable="false" id="greyit" class="fas fa-link"></i>https://www.linkedin.com/in/shubham-saroj109/</p>
+     <p contenteditable="true" id="location" > <i contenteditable="false" id="greyit" class='fas fa-map-marker-alt'></i>Maharashtra/Mumbai</p>
      
+    
+
     </div>
     <div id="sidebar">
 
@@ -109,7 +150,102 @@
 
 
     <script>
-       
+      
+      const mysummary=document.createElement('div');
+      const myproject=document.createElement('div');
+      const para=document.createElement('p');
+      const h=document.createElement('h2');
+      const deletebutton=document.createElement('button');
+      const h2=document.createElement("h2");
+      const h3=document.createElement("h5");
+      const para2=document.createElement('li');
+
+      mysummary.contentEditable="true";
+
+      const myresume=document.getElementById('myresume');
+   
+      //h
+      h.innerText="SUMMARY";
+      h.style.cssText="font-family: 'Montserrat', sans-serif;font-size:20px;position:absolute;left:5px";
+      h.contentEditable="false";
+    
+      //para
+
+      para.innerText="Innovative MERN Full Stack Developer with a robust foundation in Java language and cutting-edge web technologies. Combining technical expertise with creative problem-solving skills to deliver sophisticated, user-centric digital solutions. Recognized as a Level 7 Expert at Coding Ninjas, demonstrating exceptional proficiency in algorithm design and competitive programming.";
+      
+      para.contentEditable="true";
+
+      para.className="mypara";
+
+      //delete button 
+    
+      deletebutton.innerHTML = "<i class=\"material-icons\">delete</i>";
+
+      deletebutton.style.cssText="position:absolute;left:530px";
+
+      //projects and internship 
+
+      h2.innerText="Projects and Internships";
+      h2.style.cssText="font-family: 'Montserrat', sans-serif;font-size:20px;position:absolute;left:5px";
+      h2.contentEditable="false";
+
+
+
+      h3.innerText="BookBazaar(Book Management Web Application)";
+      h3.style.cssText="font-family: 'Montserrat', sans-serif;font-size:20px;position:absolute;left:0px;top:30px";
+      h3.contentEditable="true";
+      
+      
+      para2.innerText="Developed a comprehensive system for managing a personal book collection with features to add, view, update, and delete books.";
+      
+      para2.contentEditable="true";
+
+      para2.className="mypara2";
+      
+      
+      
+      
+      
+      myproject.style.cssText = "width: 590px; height: 180px; background-color:whitesmoke;position:absolute;top:410px;left:105px";
+  
+ 
+
+
+      //summary
+      mysummary.style.cssText = "width: 590px; height: 180px; background-color: whitesmoke;position:absolute;top:230px;left:105px";
+  
+      mysummary.appendChild(h);
+      mysummary.appendChild(para);
+      mysummary.appendChild(deletebutton);
+      myresume.appendChild(mysummary);
+      myresume.appendChild(myproject);
+      myproject.appendChild(h2);
+      myproject.appendChild(h3);
+      myproject.appendChild(para2);
+
+      deletebutton.addEventListener("click",()=>{
+         
+         myresume.removeChild(mysummary);
+
+      })
+      
+
+      //delete functionality
+
+      para2.addEventListener("click",event=>{
+          
+        if(event.key="Enter"){
+        const newpara=document.createElement('li');
+
+        para2.appendChild(newpara);
+
+        }
+
+      });
+
+
+
+
     </script>
 
 
