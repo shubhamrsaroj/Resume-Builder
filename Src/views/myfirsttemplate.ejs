@@ -155,10 +155,13 @@
       const myproject=document.createElement('div');
       const para=document.createElement('p');
       const h=document.createElement('h2');
-      const deletebutton=document.createElement('button');
+    
+      const add=document.createElement('button');
+      
       const h2=document.createElement("h2");
       const h3=document.createElement("h5");
       const para2=document.createElement('li');
+
 
       mysummary.contentEditable="true";
 
@@ -177,12 +180,7 @@
 
       para.className="mypara";
 
-      //delete button 
     
-      deletebutton.innerHTML = "<i class=\"material-icons\">delete</i>";
-
-      deletebutton.style.cssText="position:absolute;left:530px";
-
       //projects and internship 
 
       h2.innerText="Projects and Internships";
@@ -204,9 +202,13 @@
       
       
       
+      add.innerHTML="<i class=\"fa fa-plus\"></i>";
+
+      add.style.cssText="position:absolute;left:530px;top:69px";
+
       
       
-      myproject.style.cssText = "width: 590px; height: 180px; background-color:whitesmoke;position:absolute;top:410px;left:105px";
+      myproject.style.cssText = "width: 590px; height: 180px; background-color:whitesmoke;position:relative;top:410px;left:105px";
   
  
 
@@ -216,18 +218,12 @@
   
       mysummary.appendChild(h);
       mysummary.appendChild(para);
-      mysummary.appendChild(deletebutton);
       myresume.appendChild(mysummary);
       myresume.appendChild(myproject);
       myproject.appendChild(h2);
       myproject.appendChild(h3);
       myproject.appendChild(para2);
-
-      deletebutton.addEventListener("click",()=>{
-         
-         myresume.removeChild(mysummary);
-
-      })
+      myproject.appendChild(add);
       
 
       //delete functionality
@@ -243,7 +239,46 @@
 
       });
 
+      add.addEventListener("click", () => {
 
+        
+    
+
+        const newdiv = document.createElement('div');
+        const h4 = document.createElement('h2');
+        const h5 = document.createElement('h3');
+        const para5 = document.createElement('p');
+
+      h4.innerText="Projects and Internships";
+      h4.style.cssText="font-family: 'Montserrat', sans-serif;font-size:20px;position:absolute;left:5px";
+      h4.contentEditable="false";
+
+
+
+      h5.innerText="BookBazaar(Book Management Web Application)";
+      h5.style.cssText="font-family: 'Montserrat', sans-serif;font-size:20px;position:absolute;left:0px;top:30px";
+      h5.contentEditable="true";
+      
+      
+      para5.innerText="Developed a comprehensive system for managing a personal book collection with features to add, view, update, and delete books.";
+      
+      para5.contentEditable="true";
+
+      para5.className="mypara2";
+      
+      
+     newdiv.appendChild(h4);
+     
+     newdiv.appendChild(h5);
+
+     
+     newdiv.appendChild(para5);
+
+
+    const myposition = myproject.children[2].offsetHeight;
+    newdiv.style.cssText = `width: 590px; height: 180px; background-color: green; position: relative; top: ${myposition}px; display: flex;flex-direction:column`;
+    myproject.insertBefore(newdiv, myproject.children[2]); 
+});
 
 
     </script>
