@@ -110,9 +110,15 @@
     }
     
     .mypara2{
-        position: absolute;
-        top: 100px;
-        left:0px;
+        position: relative;
+        margin-top: 56px;
+        margin-left:0px;
+    }
+
+    .mypara6{
+        position: relative;
+        margin-top: 0px;
+        margin-left:0px;
     }
 
     #mycontainer{
@@ -121,7 +127,9 @@
         background-color: white;
     }
 
+     
 
+    
   
     </style>
 </head>
@@ -162,6 +170,8 @@
       const h3=document.createElement("h5");
       const para2=document.createElement('li');
 
+      const deletebutton=document.createElement('button')
+
 
       mysummary.contentEditable="true";
 
@@ -184,13 +194,13 @@
       //projects and internship 
 
       h2.innerText="Projects and Internships";
-      h2.style.cssText="font-family: 'Montserrat', sans-serif;font-size:20px;position:absolute;left:5px";
+      h2.style.cssText="font-family: 'Montserrat', sans-serif;font-size:20px;margin-left:5px;margin-top:50px";
       h2.contentEditable="false";
 
 
 
       h3.innerText="BookBazaar(Book Management Web Application)";
-      h3.style.cssText="font-family: 'Montserrat', sans-serif;font-size:20px;position:absolute;left:0px;top:30px";
+      h3.style.cssText="font-family: 'Montserrat', sans-serif;font-size:20px;margin-left:0px;margin-top:5px";
       h3.contentEditable="true";
       
       
@@ -204,13 +214,19 @@
       
       add.innerHTML="<i class=\"fa fa-plus\"></i>";
 
-      add.style.cssText="position:absolute;left:530px;top:69px";
+      add.style.cssText="position:absolute;left:620px;top:500px";
+
+      
+      deletebutton.innerHTML = '<i id="deletebutton" class="material-icons">delete</i>';
+
+
+      deletebutton.style.cssText="width:20px;height:20px;position:absolute;left:650px;top:497px;border-style:none";
 
       
       
-      myproject.style.cssText = "width: 590px; height: 180px; background-color:whitesmoke;position:relative;top:410px;left:105px";
+      myproject.style.cssText = "width: 590px; min-height: 180px; background-color:whitesmoke;margin-top:450px;margin-left:105px";
   
- 
+      
 
 
       //summary
@@ -224,7 +240,7 @@
       myproject.appendChild(h3);
       myproject.appendChild(para2);
       myproject.appendChild(add);
-      
+      myproject.appendChild(deletebutton);
 
       //delete functionality
 
@@ -249,14 +265,14 @@
         const h5 = document.createElement('h3');
         const para5 = document.createElement('p');
 
-      h4.innerText="Projects and Internships";
-      h4.style.cssText="font-family: 'Montserrat', sans-serif;font-size:20px;position:absolute;left:5px";
+      h4.innerText=" BookBazaar(Book Management Web Application)";
+      h4.style.cssText="font-family: 'Montserrat', sans-serif;font-size:20px;margin-left:5px;margin-top:50px";
       h4.contentEditable="false";
 
+     
 
-
-      h5.innerText="BookBazaar(Book Management Web Application)";
-      h5.style.cssText="font-family: 'Montserrat', sans-serif;font-size:20px;position:absolute;left:0px;top:30px";
+      h5.innerText="Projects and Internships";
+      h5.style.cssText="font-family: 'Montserrat', sans-serif;font-size:20px;margin-left:0px;margin-top:5px";
       h5.contentEditable="true";
       
       
@@ -265,6 +281,10 @@
       para5.contentEditable="true";
 
       para5.className="mypara2";
+  
+      para5.classList.add('mypara6');
+      
+     
       
       
      newdiv.appendChild(h4);
@@ -275,11 +295,131 @@
      newdiv.appendChild(para5);
 
 
-    const myposition = myproject.children[2].offsetHeight;
-    newdiv.style.cssText = `width: 590px; height: 180px; background-color: green; position: relative; top: ${myposition}px; display: flex;flex-direction:column`;
-    myproject.insertBefore(newdiv, myproject.children[2]); 
+     const myposition = myproject.children[2].offsetHeight-40; // Get the bottom position of the third child
+
+
+newdiv.style.cssText = `width: 590px; height: 180px; background-color: green; position: relative; top: ${myposition}px; display: flex; flex-direction: column;`;
+myproject.insertBefore(newdiv, myproject.children[5]);
+    
+
 });
 
+
+deletebutton.addEventListener("click",()=>{
+    myresume.removeChild(myproject);
+})
+
+
+
+
+//my education
+
+const summaryDiv = document.createElement('div');
+const projectDiv = document.createElement('div');
+const summaryPara = document.createElement('p');
+const summaryHeader = document.createElement('h2');
+
+const addButton = document.createElement('button');
+
+const projectHeader = document.createElement("h2");
+const projectSubHeader = document.createElement("h5");
+const projectDescription = document.createElement('li');
+
+const deleteButton = document.createElement('button');
+
+summaryDiv.contentEditable = "true";
+
+const resumeContainer = document.getElementById('myresume');
+
+// Summary Header
+summaryHeader.innerText = "SUMMARY";
+summaryHeader.style.cssText = "font-family: 'Montserrat', sans-serif;font-size:20px;position:absolute;left:5px";
+summaryHeader.contentEditable = "false";
+
+// Summary Paragraph
+summaryPara.innerText = "Innovative MERN Full Stack Developer with a robust foundation in Java language and cutting-edge web technologies. Combining technical expertise with creative problem-solving skills to deliver sophisticated, user-centric digital solutions. Recognized as a Level 7 Expert at Coding Ninjas, demonstrating exceptional proficiency in algorithm design and competitive programming.";
+summaryPara.contentEditable = "true";
+summaryPara.className = "mypara";
+
+// Projects and Internships Header
+projectHeader.innerText = "My Education";
+projectHeader.style.cssText = "font-family: 'Montserrat', sans-serif;font-size:20px;margin-left:5px;margin-top:50px";
+projectHeader.contentEditable = "false";
+
+// Project Subheader
+projectSubHeader.innerText = "Master of Science";
+projectSubHeader.style.cssText = "font-family: 'Montserrat', sans-serif;font-size:20px;margin-left:0px;margin-top:5px";
+projectSubHeader.contentEditable = "true";
+
+// Project Description
+projectDescription.innerText = "Pondicherry University";
+projectDescription.contentEditable = "true";
+projectDescription.className = "mypara2";
+
+// Add Button
+addButton.innerHTML = "<i class=\"fa fa-plus\"></i>";
+addButton.style.cssText = "position:relative;left:530px;top:-90px";
+
+// Delete Button
+deleteButton.innerHTML = '<i id="deletebutton" class="material-icons">delete</i>';
+deleteButton.style.cssText = "width:20px;height:20px;left:550px;position:relative;top:-85px;border-style:none";
+
+// Project Container Styles
+projectDiv.style.cssText = "width: 590px; height: 100px; position:relative;background-color:whitesmoke;top:-80px;left:105px";
+
+// Summary Styles
+summaryDiv.style.cssText = "width: 590px; height: 100px; background-color: whitesmoke;position:absolute;top:230px;left:105px";
+
+// Append Elements
+summaryDiv.appendChild(summaryHeader);
+summaryDiv.appendChild(summaryPara);
+resumeContainer.appendChild(summaryDiv);
+resumeContainer.appendChild(projectDiv);
+projectDiv.appendChild(projectHeader);
+projectDiv.appendChild(projectSubHeader);
+projectDiv.appendChild(projectDescription);
+projectDiv.appendChild(addButton);
+projectDiv.appendChild(deleteButton);
+
+// Delete Functionality
+projectDescription.addEventListener("click", event => {
+    if (event.key === "Enter") {
+        const newItem = document.createElement('li');
+        projectDescription.appendChild(newItem);
+    }
+});
+
+// Add Button Functionality
+addButton.addEventListener("click", () => {
+    const newProjectDiv = document.createElement('div');
+const newProjectHeader = document.createElement('h2');
+const newProjectSubHeader = document.createElement('li');
+const newProjectDescription = document.createElement('p');
+
+// Update the project title to include degree and university
+newProjectHeader.innerText = "Bachelor of Science in Computer Science ";
+newProjectHeader.style.cssText = " font-family: 'Montserrat', sans-serif;font-size:20px;margin-left: 5px; margin-top: 2px;";
+newProjectHeader.contentEditable = "true";
+
+// Update the sub-header to include month and year
+newProjectSubHeader.innerText = "Pillai College of Arts ,Commerce and Science";
+newProjectSubHeader.style.cssText = "margin-left: 5px; margin-top: 35px";
+newProjectSubHeader.contentEditable = "true";
+
+
+newProjectDiv.appendChild(newProjectHeader);
+newProjectDiv.appendChild(newProjectSubHeader);
+newProjectDiv.appendChild(newProjectDescription);
+
+const positionOffset = projectDiv.children[2].offsetHeight - 10; // Get the bottom position of the third child
+newProjectDiv.style.cssText = `width: 590px; height: 100px; background-color: whitesmoke; position: relative; top: ${positionOffset-30}px; display: flex; flex-direction: column;`;
+projectDiv.insertBefore(newProjectDiv, projectDiv.children[5]);
+});
+
+// Delete Button Functionality
+deleteButton.addEventListener("click", () => {
+    resumeContainer.removeChild(projectDiv);
+});
 
     </script>
 
