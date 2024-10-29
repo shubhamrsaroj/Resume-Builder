@@ -22,7 +22,7 @@
        #sidebar{
         width: 350px;
         height: 1300px;
-        background-color: black;
+        background-color: rgb(10, 109, 10);
         position: absolute;
         left: 950px;
         top: 130px;
@@ -298,7 +298,7 @@
      const myposition = myproject.children[2].offsetHeight-40; // Get the bottom position of the third child
 
 
-newdiv.style.cssText = `width: 590px; height: 180px; background-color: green; position: relative; top: ${myposition}px; display: flex; flex-direction: column;`;
+newdiv.style.cssText = `width: 590px; height: 180px; background-color:whitesmoke; position: relative; top: ${myposition}px; display: flex; flex-direction: column;`;
 myproject.insertBefore(newdiv, myproject.children[5]);
     
 
@@ -314,10 +314,8 @@ deletebutton.addEventListener("click",()=>{
 
 //my education
 
-const summaryDiv = document.createElement('div');
 const projectDiv = document.createElement('div');
-const summaryPara = document.createElement('p');
-const summaryHeader = document.createElement('h2');
+
 
 const addButton = document.createElement('button');
 
@@ -327,19 +325,10 @@ const projectDescription = document.createElement('li');
 
 const deleteButton = document.createElement('button');
 
-summaryDiv.contentEditable = "true";
 
 const resumeContainer = document.getElementById('myresume');
 
-// Summary Header
-summaryHeader.innerText = "SUMMARY";
-summaryHeader.style.cssText = "font-family: 'Montserrat', sans-serif;font-size:20px;position:absolute;left:5px";
-summaryHeader.contentEditable = "false";
 
-// Summary Paragraph
-summaryPara.innerText = "Innovative MERN Full Stack Developer with a robust foundation in Java language and cutting-edge web technologies. Combining technical expertise with creative problem-solving skills to deliver sophisticated, user-centric digital solutions. Recognized as a Level 7 Expert at Coding Ninjas, demonstrating exceptional proficiency in algorithm design and competitive programming.";
-summaryPara.contentEditable = "true";
-summaryPara.className = "mypara";
 
 // Projects and Internships Header
 projectHeader.innerText = "My Education";
@@ -355,6 +344,7 @@ projectSubHeader.contentEditable = "true";
 projectDescription.innerText = "Pondicherry University";
 projectDescription.contentEditable = "true";
 projectDescription.className = "mypara2";
+projectDescription.style.cssText="color:rgb(10, 109, 10)";
 
 // Add Button
 addButton.innerHTML = "<i class=\"fa fa-plus\"></i>";
@@ -368,12 +358,7 @@ deleteButton.style.cssText = "width:20px;height:20px;left:550px;position:relativ
 projectDiv.style.cssText = "width: 590px; height: 100px; position:relative;background-color:whitesmoke;top:-80px;left:105px";
 
 // Summary Styles
-summaryDiv.style.cssText = "width: 590px; height: 100px; background-color: whitesmoke;position:absolute;top:230px;left:105px";
 
-// Append Elements
-summaryDiv.appendChild(summaryHeader);
-summaryDiv.appendChild(summaryPara);
-resumeContainer.appendChild(summaryDiv);
 resumeContainer.appendChild(projectDiv);
 projectDiv.appendChild(projectHeader);
 projectDiv.appendChild(projectSubHeader);
