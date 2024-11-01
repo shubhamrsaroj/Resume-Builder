@@ -139,40 +139,23 @@
 
     }
      
-    #fileInput{
-        width:100px;
-        height: 100px;
-    } 
+    #myfile{
+        width:200px;
+        height:200px;
+       
+     }
 
 
-    /* my file */
-    .upload-container {
-  text-align: center;
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 
-input[type="file"] {
-  margin-top: 10px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-#previewContainer {
-  margin-top: 20px;
-}
 
 #previewImage {
-  max-width: 100%;
-  height: auto;
+  max-width: 200px;
+  height: 200px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
+  
     
   
     </style>
@@ -196,22 +179,18 @@ input[type="file"] {
 
     </div>
     <div id="sidebar">
- 
-          <div id="myphoto">
-
-            <div class="upload-container">
-                <h2>Upload an Image</h2>
-                <input type="file" id="fileInput" accept="image/*">
-                <div id="previewContainer">
-                  <img id="previewImage" alt="Image Preview" style="display: none;">
-                </div>
-              </div>
-            
-          </div>
+        <div id="myphoto">
+          <input id="myfile" type="file" accept="image/*"> <!-- Fixed syntax here -->
+          
+        
+            <img id="previewImage" alt="Image Preview" style="display: none;">
+          
+        </div>
+      </div>
+      
 
 
-
-    </div>
+    
 
 
 
@@ -220,20 +199,27 @@ input[type="file"] {
 
       //file enter
 
-      document.getElementById('fileInput').addEventListener('change', function(event) {
+      const myimage = document.getElementById("myfile");
+      const imagephoto=document.getElementById("myphoto");
+
+
+myimage.addEventListener("change", function(event) {
   const file = event.target.files[0];
+
   if (file && file.type.startsWith('image/')) {
     const reader = new FileReader();
+
     reader.onload = function(e) {
-      const previewImage = document.getElementById('previewImage');
+      const previewImage = document.getElementById("previewImage"); // Assuming there's an <img> with this ID
       previewImage.src = e.target.result;
       previewImage.style.display = 'block';
     };
+
     reader.readAsDataURL(file);
-  } else {
-    alert("Please upload a valid image file.");
   }
 });
+
+imagephoto.appendChild(myimage);
 
 
 
@@ -255,6 +241,8 @@ input[type="file"] {
 
 
       mysummary.contentEditable="true";
+
+
 
       const myresume=document.getElementById('myresume');
    
