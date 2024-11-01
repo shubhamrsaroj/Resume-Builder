@@ -149,13 +149,20 @@
 
 
 #previewImage {
-  max-width: 200px;
-  height: 200px;
+  max-width: 100%;
+  height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-  
+  #myupload{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top:30px;
+    left: 52px;
+
+}
     
   
     </style>
@@ -180,7 +187,7 @@
     </div>
     <div id="sidebar">
         <div id="myphoto">
-          <input id="myfile" type="file" accept="image/*"> <!-- Fixed syntax here -->
+          <h1 id="myupload" > <input id="myfile" type="file" accept="image/*" style="display: none;">  </h1> <!-- Fixed syntax here -->
           
         
             <img id="previewImage" alt="Image Preview" style="display: none;">
@@ -201,7 +208,22 @@
 
       const myimage = document.getElementById("myfile");
       const imagephoto=document.getElementById("myphoto");
+      const myfile=document.getElementById("myupload");
 
+      myfile.innerHTML = '<i class="fa fa-upload"></i>';
+
+     
+      myfile.addEventListener("click",()=>{
+        myimage.click();
+        myfile.style.display="none";
+      })
+
+      imagephoto.addEventListener("click",()=>{
+        myimage.click();
+      })
+
+
+      imagephoto.appendChild(myfile);
 
 myimage.addEventListener("change", function(event) {
   const file = event.target.files[0];
